@@ -1,0 +1,576 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*border: 1px solid gray;*/
+}
+
+html {
+  height: 100%;
+  font-family: 'Bree Serif', serif;
+  font-size: 16px;
+}
+
+h1 {
+  margin: 57px 0 75px;
+  color: #A4478D;
+  text-align: center;
+  line-height: 80px;
+  font-family: 'Lobster', cursive;
+  font-size: 4em;
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1400px ;
+}
+
+.btn {
+  display: block;
+  margin: 0 auto 50px;
+  border-radius: 7px;
+  padding: 30px 0 35px;
+  width: 60%;
+  background-image: linear-gradient(141deg, #9cedea 1%,#56bcb4 21%,#a31b81 100%);
+  opacity: .8;
+  cursor: pointer;
+  text-align: center;
+  color: whitesmoke;
+  font-family: 'Lobster', cursive;
+  font-size: 2em;
+}
+
+.btn:hover {
+  opacity: 1;
+  -webkit-transition-duration: .4s;
+  transition-duration: .2s;
+}
+
+/* Keeps the div square and resposive */
+.players div:after, .player div:after, .tic-tac-toe > li > ul > li > div:after, .tic-tac-toe > li > ul > li:after {
+  display: block;
+  padding-bottom: 100%;
+  content: "";
+}
+
+/* Pop up Container */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(155,155,155);
+  background-color: rgba(155,155,155,.8);
+  overflow: hidden;
+}
+
+.popup-container {
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 70%;
+  max-width: 640px;
+  border-radius: 7px;
+  background-color: white;
+}
+
+.popup-container h1 {
+  margin: 30px 30px 0;
+  color: #56BCB4;
+  text-align: center;
+  font-family:  'Bree Serif', serif;
+}
+
+.popup-container h3 {
+  margin: 30px 0 0;
+  color: #56BCB4;
+  text-align: center;
+  font-family:  'Bree Serif', serif;
+  font-size: 2em;
+}
+
+.popup-container form {
+  margin: 20px auto 0;
+  width: 100%;
+}
+
+.popup-container form input {
+  display: inline-block;
+  margin: 20px 5px;
+  border: 1px solid #E8D1E2;
+  border-radius: 7px;
+  padding: 10px 15px;
+  width: 45%;
+  overflow: hidden;
+  color: #9B9B9B;
+}
+
+.popup-container form input:focus {
+  box-shadow: 0px 0px 7px #e030b2;
+  outline: 0;
+}
+
+.players {
+  margin: 0 auto;
+  width: 75%;
+  max-width: 390px;
+  text-align: center;
+}
+
+.players div {
+  display: inline-block;
+  margin: 10px 0 30px;
+  border-radius: 6px;
+  width: 49%;
+  max-width: 195px;
+}
+
+.players div:hover {
+  box-shadow: 0px 0px 15px #56BCB4;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+}
+
+.no-hover:hover {
+  box-shadow: none;
+}
+
+.figure-selected {
+  box-shadow: 0px 0px 15px #CD9AC0;
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+}
+
+.players > .figure-selected:hover {
+  box-shadow: 0px 0px 15px #CD9AC0;
+}
+
+/* The winner popup */
+#player-wins, #no-one-wins {
+  display: none;
+}
+
+/*Players info */
+.player {
+  width: 20%;
+  color: #CAC9CB;
+  text-align: center;
+}
+
+.player h2 {
+  margin-top: .83em;
+  line-height: 2em;
+  font-size: 1.75em;
+}
+
+.player div {
+  margin: 1em auto 0;
+  width: 100%;
+  max-width: 160px;
+}
+
+.player p {
+  margin: 1em 0 2.65em;
+  line-height: 3em;
+  font-size: 2.5em;
+}
+
+#score1, #score2 {
+  position: relative;
+  bottom: 10px;
+  margin: 0;
+  color: #9B9B9B;
+  line-height: 1em;
+  font-size: 1.25em;
+}
+
+#player1 {
+  float: left;
+}
+
+#player2 {
+  float: right;
+}
+
+/* Tic Tac Toe Draw */
+.tic-tac-toe {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  width: 55%;
+  max-width: 601px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 7px #E8D1E2;
+  overflow: hidden;
+}
+
+.tic-tac-toe, .tic-tac-toe ul {
+  list-style: none;
+  text-align: center;
+}
+
+.tic-tac-toe > li > ul > li {
+  display: block;
+  margin-bottom: -5px;
+  width: 33.3%;
+  float: left;
+  border-left: 5px solid transparent;
+}
+
+.tic-tac-toe > li > ul > li > div {
+  width: 100%;
+  float: left;
+}
+
+.left-border {
+  border-left: 5px solid #E8D1E2;
+}
+
+.tic-tac-toe > li > ul:after{
+  display: block;
+  padding-bottom: 31%;
+  content:"";
+}
+
+.tic-tac-toe > li > ul > li:nth-child(2), .tic-tac-toe > li > ul > li:nth-child(3) {
+  border-color: #E8D1E2;
+}
+
+.tic-tac-toe > li:nth-child(2), .tic-tac-toe > li:nth-child(3) {
+  border-top: 5px solid #E8D1E2;
+}
+
+
+/*
+.tic-tac-toe {
+  display: block;
+  margin: 0 auto;
+  padding: 10px;
+  width: 55%;
+  max-width: 601px;
+  border-radius: 12px;
+  box-shadow: 0px 0px 7px #E8D1E2;
+}
+
+.tic-tac-toe, .tic-tac-toe ul {
+  list-style: none;
+  text-align: center;
+}
+
+.tic-tac-toe > li > ul > li {
+  display: inline-block;
+  width: 33.3%;
+  margin-bottom: -5px;
+}
+
+.tic-tac-toe > li > ul > li:after {
+  display: inline-flex;
+  padding-bottom: 90%;
+  content:"";
+}
+
+.tic-tac-toe > li > ul > li:nth-child(2), .tic-tac-toe > li > ul > li:nth-child(3) {
+  margin-left: -4px;
+  border-left: 5px solid #E8D1E2;
+}
+
+.tic-tac-toe > li:nth-child(2), .tic-tac-toe > li:nth-child(3) {
+  border-top: 5px solid #E8D1E2;
+}
+
+*/
+
+/* Turn */
+.turn h2 {
+  margin-top: .5em;
+  color: #FFA16E;
+  font-size: 2em;
+}
+
+.turn div {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 194px;
+}
+
+.turn p {
+  margin: 0 0 2.15em;
+  color: #56BCB4;
+  line-height: 3em;
+  font-size: 3em;
+}
+
+.circle-turn {
+  background: url('/games/tictactoe/img/circle-turn.png') no-repeat center;
+  background-size: 62%;
+}
+
+.circle-wait{
+  background: url('/games/tictactoe/img/circle-wait.png') no-repeat center;
+  background-size: 62%;
+}
+
+.circle-pre {
+  background: url('/games/tictactoe/img/circle-pre.png') no-repeat center;
+  background-size: 62%;
+}
+
+.circle-pre:hover {
+  background-image: url('/games/tictactoe/img/circle-hover.png');
+}
+
+.cross-turn {
+  background: url('/games/tictactoe/img/cross-turn.png') no-repeat center;
+  background-size: 53%;
+}
+
+.cross-wait {
+  background: url('/games/tictactoe/img/cross-wait.png') no-repeat center;
+  background-size: 53%;
+}
+
+.cross-pre {
+  background: url('/games/tictactoe/img/cross-pre.png') no-repeat center;
+  background-size: 53%;
+}
+
+.cross-pre:hover {
+  background-image: url('/games/tictactoe/img/cross-hover.png');
+}
+
+
+
+
+
+@media (max-width: 1328px) {
+  
+  .player h2 {
+    margin-top: .85em;
+    font-size: 1.75em;
+  }
+  .player p {
+    margin: 1.43em 0 4.5em;
+    font-size: 1.85em;
+  }
+  
+  .turn p {
+    margin-bottom: 2.68em ;
+    font-size: 2.7em;
+  }
+  
+}
+
+@media (max-width: 1200px) {
+  
+  h1 {
+    margin: 41px 0 55px;
+    font-size: 3.2em;
+  }
+  
+  .player h2, .turn h2 {
+    margin-top: .5em;
+    font-size: 1.5em;
+  }
+  
+  .player div, .turn div {
+    margin-top: 0;
+    max-width: 150px;
+  }
+  
+  .player p {
+    margin: 0 0 5.8em;
+    font-size: 1.7em;
+  }
+  
+  .turn p {
+    margin-bottom: 3.8em;
+    font-size: 2.2em;
+  }
+  
+}
+
+@media (max-width: 970px) {
+  
+  h1 {
+    margin: 15px 0 25px;
+    font-size: 2.4em;
+  }
+  
+  .player div, .turn div {
+    max-width: 120px;
+  }
+  
+  .player p, .turn p {
+    margin-bottom: 3em;
+    font-size: 1.7em;
+  }
+  
+  #score1, #score2 {
+    font-size: 1em;
+  }
+  
+}
+
+@media (max-width: 740px) {
+  
+  h1 {
+    margin: 13px 0 20px;
+    line-height: 2em;
+    font-size: 1.5em;
+  }
+  
+  .player h2, .turn h2 {
+    font-size: 1em;
+  }
+  
+  .player div, .turn div {
+    margin: 1em auto;
+    max-width: 60px;
+  }
+  
+  .player p, .turn p {
+    margin-bottom: 3em;
+    line-height: 1em;
+    font-size: 1.4em;
+  }
+  
+  #score1, #score2 {
+    font-size: 1em;
+  }
+  
+  #play-revenge, #play-again {
+    font-size: 1.5em;
+  }
+  
+}
+
+@media (max-width: 532px) {
+  
+  .popup-container h1 {
+    font-size: 1em;
+  }
+  
+  .popup-container form input {
+    margin: 10px 5px 5px
+  }
+  
+  .players div {
+    margin: 0;
+  }
+  .turn p {
+    margin-bottom: 2em;
+  }
+  
+  #play-revenge, #play-again {
+    padding: 15px
+    width: 65%;
+    font-size: 1em;
+  }
+  
+}
+
+@media (max-width: 470px) {
+  
+  .btn {
+    width: 85%;
+    padding: 15px;
+    font-size: 1.5em;
+  }
+  
+  .popup-container h3 {
+    font-size: 1.5em;
+  }
+  
+  .players {
+    width: 90%;
+  }
+  
+  .player div, .turn div {
+    margin: .5em auto;
+  }
+  
+  .turn p {
+    margin-bottom: 2em;
+  }
+  
+}
+
+@media (max-width: 420px) {
+  
+  .popup-container form input {
+    width: 40%;
+    font-size: .9em;
+  }
+  
+  .player div, .turn div {
+    margin: .5em auto;
+    max-width: 45px;
+  }
+  
+  .player p, .turn p {
+    margin-bottom: 2em;
+    font-size: 1em;
+  }
+  
+  .turn p {
+    margin-bottom: 1em;
+  }
+  
+}
+
+@media (max-width: 319px) {
+  
+  h1 {
+    font-size: 1em;
+  }
+  
+  .btn {
+    font-size: 1em;
+  }
+  
+  .popup-container h3 {
+    font-size: 1em;
+  }
+  
+  .popup-container form input {
+    margin: 0 2px;
+    padding: 10px;
+    width: 45%;
+    font-size: .75em;
+  }
+  
+  .players div {
+    width: 40%
+  }
+  
+  .player div, .turn div {
+    margin: 0 auto;
+    max-width: 45px;
+  }
+  
+  .player h2, .turn h2 {
+    font-size: .7em;
+  }
+  
+  .player p, .turn p {
+    margin-bottom: 2em;
+    font-size: .7em;
+  }
+  
+  .turn p {
+    margin-bottom: 1em;
+  }
+  
+  #score1, #score2 {
+    font-size: .7em;
+  }
+  
+  
+  
+}

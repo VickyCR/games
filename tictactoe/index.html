@@ -1,0 +1,117 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="Just a simple Tic Tac Toe for testing my basic skills of JavaScript and JQuery.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lobster" rel="stylesheet">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+               
+        <!-- Catch the names of the players -->
+        <div id="get-players">
+          <div class="overlay">
+            <div class="popup-container">
+              <h3>Who begins?</h3>
+              <div class="players">
+                 <form>
+                  <input id="name1" type="text" name="name1" value="Player1">
+                  <input id="name2" type="text" name="name2" value="Player2">
+                </form>
+                <div id="circle" class="circle-turn"></div>
+                <div id="cross" class="cross-turn"></div>
+              </div>
+              <div id="lets-play" class="btn"><p>Let's play</p></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tells who won and let you play again -->
+        <div id="player-wins">
+          <div class="overlay">
+            <div id="winner" class="popup-container">
+              <h1></h1>
+              <section class="players">
+                <div></div>
+              </section>
+              <div id="play-revenge" class="btn"><p></p></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- No one wins, shame on your ancesters -->
+        <div id="no-one-wins">
+          <div class="overlay">
+            <div id="no-winner" class="popup-container">
+              <h1>Shame on you, Tic Tac Toe</h1>
+              <div id="play-again" class="btn"><p>We'll do it better</p></div>
+            </div>
+          </div>
+        </div>
+        
+        
+        
+        <div class="container">
+        <h1>Let's play Tic tac toe :3</h1>
+        
+          <div id="player1" class="player turn">
+            <h2></h2>
+            <div></div>
+            <p class="onTurn"></p>
+            <p id="score1"></p>
+          </div>
+          <div id="player2" class="player">
+            <h2></h2>
+            <div></div>
+            <p class="onTurn"></p>
+            <p id="score2"></p>
+          </div>
+          
+          <ul class="tic-tac-toe">
+            <li class="row">
+              <ul>
+                <li><div id="1" class="cat"></div></li>
+                <li><div id="2" class="cat"></div></li>
+                <li><div id="3" class="cat"></div></li>
+              </ul>
+            </li>
+            <li class="row">
+              <ul>
+                <li><div id="4" class="cat"></div></li>
+                <li><div id="5" class="cat"></div></li>
+                <li><div id="6" class="cat"></div></li>
+              </ul>
+            </li>
+            <li class="row">
+              <ul>
+                <li><div id="7" class="cat"></div></li>
+                <li><div id="8" class="cat"></div></li>
+                <li><div id="9" class="cat"></div></li>
+              </ul>
+            </li>
+          </ul>
+          
+        </div>
+
+        
+        
+        
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
